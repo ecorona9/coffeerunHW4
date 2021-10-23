@@ -1,7 +1,7 @@
 (function (window) {
     'use strict';
     var App = window.App || {};
-  
+
     var FirebaseConfig = {
         apiKey: "AIzaSyCecOyx6AOeyljITMIW_fRHDVgJrMEk9vY",
         authDomain: "cofferun-hw4.firebaseapp.com",
@@ -14,7 +14,7 @@
     };
     App.FirebaseConfig = FirebaseConfig;
     firebase.initializeApp(App.FirebaseConfig);
-  
+
     window.App = App;
-  
-    })(window);
+
+})(window);

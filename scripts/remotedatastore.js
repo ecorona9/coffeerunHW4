@@ -2,7 +2,7 @@
     'use strict';
     var App = window.App || {};
     var $ = window.jQuery;
-    
+
     class RemoteDataStore {
         constructor(url) {
             if (!url) {
@@ -15,8 +15,8 @@
                 console.log(serverResponse);
             });
         }
-        getAll(cb) { 
-            return $.get(this.serverUrl, function(serverResponse) { 
+        getAll(cb) {
+            return $.get(this.serverUrl, function (serverResponse) {
                 if (cb) {
                     console.log(serverResponse);
                     cb(serverResponse);
@@ -24,16 +24,20 @@
             });
         }
         get(key, cb) {
-            return $.get(this.serverUrl + '/' + key, function(serverResponse) {
+            return $.get(this.serverUrl + '/' + key, function (serverResponse) {
                 if (cb) {
                     console.log(serverResponse);
                     cb(serverResponse);
                 }
             });
         }
-        remove(key) { return $.ajax(this.serverUrl + '/' + key, { type: 'DELETE' }); }
+        remove(key) {
+            return $.ajax(this.serverUrl + '/' + key, {
+                type: 'DELETE'
+            });
+        }
     }
-    
+
     App.RemoteDataStore = RemoteDataStore;
     window.App = App;
-  })(window);
+})(window);

@@ -5,7 +5,9 @@
 
     class CheckList {
         constructor(selector) {
-            if (!selector) { throw new Error('No selector provided'); }
+            if (!selector) {
+                throw new Error('No selector provided');
+            }
 
             this.$element = $(selector);
             if (this.$element.length === 0) {
@@ -13,13 +15,13 @@
             }
         }
 
-        addClickHandler(fn) { 
-            this.$element.on('click', 'input', function(event) {
+        addClickHandler(fn) {
+            this.$element.on('click', 'input', function (event) {
                 var email = event.target.value;
-                fn(email). 
-                    then(function() { 
-                        this.removeRow(email);
-                    }.bind(this));
+                fn(email).
+                then(function () {
+                    this.removeRow(email);
+                }.bind(this));
             }.bind(this));
         }
         addRow(coffeeOrder) {
@@ -30,16 +32,17 @@
 
         removeRow(email) {
             this.$element
-              .find('[value="' + email + '"]')
-              .closest('[data-coffee-order="checkbox"]')
-              .remove();
+                .find('[value="' + email + '"]')
+                .closest('[data-coffee-order="checkbox"]')
+                .remove();
         }
     }
 
     class Row {
         constructor(coffeeOrder) {
             var $div = $('<div></div>', {
-                'data-coffee-order': 'checkbox', 'class': 'checkbox'
+                'data-coffee-order': 'checkbox',
+                'class': 'checkbox'
             });
 
             var $label = $('<label></label>');
@@ -68,4 +71,4 @@
 
     App.CheckList = CheckList;
     window.App = App;
-  })(window);
+})(window);
