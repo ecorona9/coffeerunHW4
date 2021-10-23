@@ -3,7 +3,7 @@
     var FORM_SELECTOR = '[data-coffee-order="form"]';
     var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
     var FIREBASE_SERVER_URL = 'https://cofferun-hw4.firebaseapp.com';
-    //https://cofferun-hw4.firebaseapp.com
+    
     var App = window.App;
     var Truck = App.Truck;
  
